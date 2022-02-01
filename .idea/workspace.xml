@@ -4,10 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="693953f9-0bb9-4cfd-904c-05cb6a61c708" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Lesson 1/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Lesson 1/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+    <list default="true" id="693953f9-0bb9-4cfd-904c-05cb6a61c708" name="Changes" comment="git init">
+      <change afterPath="$PROJECT_DIR$/Lesson 1/task_1/script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lesson 1/task_2/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lesson 1/task_2/script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lesson 1/task_3/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lesson 1/task_3/script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lesson 1/task_4/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lesson 1/task_4/script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lesson 1/task_5/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lesson 1/task_5/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Basics/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Basics/Work 1/Page.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Basics/Work 1/Script.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Basics/Work 2/Year.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Basics/Work 3/Page.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Basics/Work 3/Ruletka.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Basics/Work 4/Page.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Basics/Work 4/Percent.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Basics/Work 5/Calculation.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Basics/Work 5/Page.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lesson 1/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Lesson 1/task_1/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lesson 1/script.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,6 +35,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -31,6 +56,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="16.13.2" />
     <property name="javascript.nodejs.core.library.typings.version" value="16.11.22" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Lesson 1/task_4" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -39,8 +65,19 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="MTConfigurable" />
   </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\nbulatov\OneDrive\Документы\Programming\Repositories\js\Lesson 1\task_4" />
+      <recent name="C:\Users\nbulatov\OneDrive\Документы\Programming\Repositories\js\Lesson 1\task_3" />
+      <recent name="C:\Users\nbulatov\OneDrive\Документы\Programming\Repositories\js\Lesson 1\task_2" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\nbulatov\OneDrive\Документы\Programming\Repositories\js\Lesson 1\task_5" />
+      <recent name="C:\Users\nbulatov\OneDrive\Документы\Programming\Repositories\js\Lesson 1\task_1" />
+    </key>
+  </component>
   <component name="RunManager" selected="Node.js.script.js">
-    <configuration name="script.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/Lesson 1/script.js" working-dir="$PROJECT_DIR$/Lesson 1">
+    <configuration name="script.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/Lesson 1/task_1/script.js" working-dir="$PROJECT_DIR$/Lesson 1">
       <method v="2" />
     </configuration>
     <configuration name="test" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
@@ -69,10 +106,34 @@
       <option name="presentableId" value="Default" />
       <updated>1643735669830</updated>
       <workItem from="1643735671301" duration="3015000" />
+      <workItem from="1643738793196" duration="2619000" />
     </task>
+    <task id="LOCAL-00001" summary="git init">
+      <created>1643738815281</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1643738815281</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="git init" />
+    <option name="LAST_COMMIT_MESSAGE" value="git init" />
   </component>
 </project>
