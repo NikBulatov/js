@@ -14,6 +14,8 @@ function operation(a, b, action) {
             return a * b;
         case '/':
             return a / b;
+        case '**':
+            return a ** b;
         default:
             return 'Wrong operation!'
     }
