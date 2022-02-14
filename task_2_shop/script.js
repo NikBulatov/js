@@ -9,30 +9,30 @@ b) Организовать функцию countBasketPrice, которая бу
 let basket = [
   {
     item: "pen",
-    price: getPrice(50, 50)
+    price: 50,
+    quantity: 50
   },
   {
     item: "pencil",
-    price: getPrice(30, 25)
+    price: 30,
+    quantity: 25
   },
   {
     item: "eraser",
-    price: getPrice(15, 5)
+    price: 15,
+    quantity: 5
   },
   {
     item: "paper",
-    price: getPrice(20, 500)
+    price: 20,
+    quantity: 500
   }
 ];
-
-function getPrice(price, count = 1) {
-  return price * count;
-}
 
 function countBasketPrice(basket) {
   let result = 0;
   for (let value of basket) {
-    result += value['price'];
+    result += value['price'] * value['quantity'];
   }
   return result;
 }
