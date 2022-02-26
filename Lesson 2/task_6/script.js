@@ -7,18 +7,36 @@
 function operation(a, b, action) {
     switch (action) {
         case '+':
-            return a + b;
+            return sum(a, b);
         case '-':
-            return a - b;
+            return sub(a, b);
         case '*':
-            return a * b;
+            return mul(a, b);
         case '/':
-            return a / b;
+            return div(a, b);
         case '**':
-            return a ** b;
+            return pow(a, b);
         default:
             return 'Wrong operation!'
     }
+};
+function sum(a, b) {
+    return a + b;
+};
+
+function sub(a, b) {
+    return a - b;
+};
+
+function mul(a, b) {
+    return a * b;
+};
+
+function div(a, b) {
+    return a / b;
+};
+function pow(a, b) {
+    return a ** b;
 }
 
 let a = +prompt('The first operand: ');
