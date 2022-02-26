@@ -3,31 +3,28 @@
 a. Добавлять в объект корзины выбранные товары по клику на кнопке «Купить» без перезагрузки страницы
 b. Привязать к событию покупки товара пересчет корзины и обновление ее внешнего вида
 */
-/*
-3*. Сделать так, чтобы товары в каталоге выводились при помощи JS:
-    3.1. Создать массив товаров (сущность Product);
-    3.2. При загрузке страницы на базе данного массива генерировать вывод из него. 
-        HTML-код должен содержать только div id=”catalog” без вложенного кода. Весь вид каталога генерируется JS.
-*/
-const notebook = {
-    id: 001,
-    name: 'NoteBook',
-    price: 45690,
-    quantity: 1,
-};
-const mouse = {
-    id: 002,
-    name: 'Mouse',
-    price: 1500,
-    quantity: 1,
-}
-const keyboard = {
-    id: 003,
-    name: 'Keyboard',
-    price: 2500,
-    quantity: 1,
-}
+// const notebook = {
+//     id: 001,
+//     name: 'NoteBook',
+//     price: 45690,
+//     quantity: 1,
+// };
+// const mouse = {
+//     id: 002,
+//     name: 'Mouse',
+//     price: 1500,
+//     quantity: 1,
+// }
+// const keyboard = {
+//     id: 003,
+//     name: 'Keyboard',
+//     price: 2500,
+//     quantity: 1,
+// }
+const catalog = {
 
+
+}
 const cartItem = {
     render(good) {
         return `<div class="good">
@@ -42,14 +39,15 @@ const cartItem = {
 
 const cart = {
     cartList: null,
-    cartButton: null,
+    cartButtonClear: null,
     cartItem,
-    goods: [notebook, mouse, keyboard],
+    goods: [],
 
     init() {
         this.cartList = document.querySelector('.cart-list');
-        this.cartButton = document.querySelector('.cart-btn');
-        this.cartButton.addEventListener('click', this.clearCart.bind(this));
+        this.cartButtonClear = document.querySelector('.cart-btn-clear');
+        this.cartButton = document.querySelector('.cart-btn-add');
+        this.cartButtonClear.addEventListener('click', this.clearCart.bind(this));
 
         this.render();
     },
@@ -73,21 +71,26 @@ const cart = {
         this.goods = [];
         this.render();
     },
-    addToGood(good) {
+    addGood(good) {
         this.goods.push(good);
-    }
+    },
+
 };
 
 cart.init();
 
-const catalog = {
-    goods: [],
-    cart: null,
-    init(cart) {
-        this.cart = cart;
-    },
-    addToCart(good) {
-        this.cart.addGood(good);
-    },
-};
-catalog.init(cart); 
+// const catalog = {
+//     goods: [],
+//     cart: null,
+//     init(cart) {
+//         this.cart = cart;
+//
+//     },
+//     addToCart(good) {
+//         this.cart.addToGood(good);
+//     },
+//     render() {
+//
+//     },
+// };
+// catalog.init(cart);
