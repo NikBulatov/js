@@ -1,96 +1,223 @@
-/*
-1. Доработать модуль корзины.
-a. Добавлять в объект корзины выбранные товары по клику на кнопке «Купить» без перезагрузки страницы
-b. Привязать к событию покупки товара пересчет корзины и обновление ее внешнего вида
-*/
-// const notebook = {
-//     id: 001,
-//     name: 'NoteBook',
-//     price: 45690,
-//     quantity: 1,
-// };
-// const mouse = {
-//     id: 002,
-//     name: 'Mouse',
-//     price: 1500,
-//     quantity: 1,
-// }
-// const keyboard = {
-//     id: 003,
-//     name: 'Keyboard',
-//     price: 2500,
-//     quantity: 1,
-// }
+"use strict";
+
+/**
+ *  Объект каталога товаров
+ */
 const catalog = {
+    catalogBlock: null,
+    cart: null,
+    list: [
+        {
+            id_product: 123,
+            product_name: 'Ноутбук',
+            price: 45600,
+        },
+        {
+            id_product: 456,
+            product_name: 'Мышка',
+            price: 1000,
+        },
+        {
+            id_product: 245,
+            product_name: 'Клавиатура',
+            price: 1500,
+        }
+    ],
 
-
-}
-const cartItem = {
-    render(good) {
-        return `<div class="good">
-                    <div><b>Name</b>: ${good.name}</div>
-                    <div><b>Price</b>: ${good.price}</div>
-                    <div><b>Quantity</b>: ${good.quantity}</div>
-                    <div><b>Total price</b>: ${good.quantity * good.price}</div>
-                </div>`;
-    }
-};
-
-
-const cart = {
-    cartList: null,
-    cartButtonClear: null,
-    cartItem,
-    goods: [],
-
-    init() {
-        this.cartList = document.querySelector('.cart-list');
-        this.cartButtonClear = document.querySelector('.cart-btn-clear');
-        this.cartButton = document.querySelector('.cart-btn-add');
-        this.cartButtonClear.addEventListener('click', this.clearCart.bind(this));
-
+    /**
+     * Инициальзация каталога.
+     * @param catalogBlockClass - класс блока каталога
+     * @param cart - корзина
+     */
+    init(catalogBlockClass, cart) {
+        this.catalogBlock = document.querySelector(`.${catalogBlockClass}`);
+        this.cart = cart;
         this.render();
+        this.addEventHandlers();
     },
+
+    /**
+     * Рендер каталога
+     */
     render() {
-        if (this.goods.length) {
-            this.goods.forEach(good => {
-                this.cartList.insertAdjacentHTML('beforeend', this.cartItem.render(good));
-            });
-            this.cartList
-                .insertAdjacentHTML('beforeend', `${this.goods.length} items are in cart, total price is ${this.getTotalPrice()}`);
+        if (this.getCatalogListLength() > 0) {
+            this.renderCatalogList();
         } else {
-            this.cartList.textContent = 'Empty cart';
+            this.renderEmptyCatalog();
         }
     },
-    getTotalPrice() {
-        return this.goods.reduce(function (price, good) {
-            return price + good.price * good.quantity;
-        }, 0);
+
+    /**
+     * Добавляем обработку событий
+     */
+    addEventHandlers() {
+        this.catalogBlock.addEventListener('click', event => this.addToBasket(event));
     },
-    clearCart() {
+
+    /**
+     * Метод добавления в корзину
+     */
+    addToBasket(event) {
+        if (!event.target.classList.contains('product__add-to-cart')) return;
+        const id_product = +event.target.dataset.id_product;
+        const productToAdd = this.list.find((product) => product.id_product === id_product);
+        this.cart.addToBasket(productToAdd);
+    },
+
+    /**
+     * Метод получения количества товаров в каталоге
+     * @returns {number}
+     */
+    getCatalogListLength() {
+        return this.list.length;
+    },
+
+    /**
+     * Рендер списка товаров
+     */
+    renderCatalogList() {
+        this.catalogBlock.innerHTML = '';
+        this.list.forEach(item => {
+            this.catalogBlock.insertAdjacentHTML('beforeend', this.renderCatalogItem(item));
+        });
+    },
+
+    /**
+     * Рендер отдельного товара из списка
+     * @param item - товар
+     * @returns {string} - сгенерированая строка разметки
+     */
+    renderCatalogItem(item) {
+        return `<div class="product">
+                <h3>${item.product_name}</h3>
+                <p>${item.price} руб.</p>
+                <button class="product__add-to-cart" data-id_product="${item.id_product}">В корзину</button>
+            </div>`;
+    },
+
+    /**
+     * Рендер пустого каталога
+     */
+    renderEmptyCatalog() {
+        this.catalogBlock.innerHTML = '';
+        this.catalogBlock.textContent = 'Каталог товаров пуст.';
+    },
+};
+
+/**
+ *  Объект корзины
+ */
+const cart = {
+    cartBlock: null,
+    clrCartButton: null,
+    goods: [
+        {
+            id_product: 123,
+            product_name: 'Ноутбук',
+            price: 45600,
+            quantity: 2,
+        },
+    ],
+
+    /**
+     * Метод инициальзации корзины
+     * @param cartBlockClass - класс блока корзины
+     * @param clrCartButton - класс кнопки очистки корзины
+     */
+    init(cartBlockClass, clrCartButton) {
+        this.cartBlock = document.querySelector(`.${cartBlockClass}`);
+        this.clrCartButton = document.querySelector(`.${clrCartButton}`);
+
+
+        this.addEventHandlers();
+        this.render();
+    },
+
+    /**
+     * Метод установки обработчиков событий
+     */
+    addEventHandlers() {
+        this.clrCartButton.addEventListener('click', this.dropCart.bind(this));
+    },
+
+    /**
+     * Метод очистки корзины
+     */
+    dropCart() {
         this.goods = [];
         this.render();
     },
-    addGood(good) {
-        this.goods.push(good);
+
+    /**
+     * Рендер корзины
+     */
+    render() {
+        if (this.getCartGoodsLength() > 0) {
+            this.renderCartList();
+        } else {
+            this.renderEmptyCart();
+        }
     },
 
+    /**
+     * Добавить товар
+     */
+    addToBasket(product) {
+        if (product) {
+            const findInBasket = this.goods.find((item) => product.id_product === item.id_product);
+            if (findInBasket) {
+                findInBasket.quantity++;
+            } else {
+                this.goods.push({...product, quantity: 1});
+            }
+            this.render();
+        } else {
+            alert('Ошибка добавления!');
+        }
+    },
+
+    /**
+     * Получение количества товаров в корзине
+     * @returns {number}
+     */
+    getCartGoodsLength() {
+        return this.goods.length;
+    },
+
+    /**
+     * Рендер пустой корзины
+     */
+    renderEmptyCart() {
+        this.cartBlock.innerHTML = '';
+        this.cartBlock.textContent = 'Корзина пуста.';
+    },
+
+    /**
+     * Рендер списка товаров в корзине
+     */
+    renderCartList() {
+        this.cartBlock.innerHTML = '';
+        this.goods.forEach(item => {
+            this.cartBlock.insertAdjacentHTML('beforeend', this.renderCartItem(item));
+        });
+    },
+
+    /**
+     * Рендер отдельного товара в корзине
+     * @param item - товар
+     * @returns {string} - сгененрированая строка разметки
+     */
+    renderCartItem(item) {
+        return `<div>
+                <h3>${item.product_name}</h3>
+                <p>${item.price} руб.</p>
+                <p>${item.quantity} шт.</p>
+            </div>`;
+    },
 };
 
-cart.init();
-
-// const catalog = {
-//     goods: [],
-//     cart: null,
-//     init(cart) {
-//         this.cart = cart;
-//
-//     },
-//     addToCart(good) {
-//         this.cart.addToGood(good);
-//     },
-//     render() {
-//
-//     },
-// };
-// catalog.init(cart);
+/**
+ * Подключение каталога и корзины
+ */
+catalog.init('catalog', cart);
+cart.init('cart', 'clr-cart');

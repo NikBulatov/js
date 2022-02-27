@@ -1,26 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <title>Cart</title>
-    <script src="script.js" defer></script>
-    <style>
-        .good {
-            border: 1px solid #000000;
-            margin-bottom: 5px;
-            background: #dadada;
-        }
-    </style>
+    <title>Каталог и корзина</title>
 </head>
-
 <body>
+<!--
+3. Сделать так, чтобы товары в каталоге выводились при помощи JS:
+a) Создать массив товаров (сущность Product);
+b) При загрузке страницы на базе данного массива генерировать вывод из него. HTML-код должен содержать только div id=”catalog” без вложенного кода. Весь вид каталога генерируется JS.
+-->
+<h2>Каталог:</h2>
 <div class="catalog"></div>
-
-<div class="cart-list"></div>
-<button class="cart-btn-clear">Clear cart</button>
-<button class="cart-btn-add">Add to cart</button>
-
+<hr>
+<h2>Корзина:</h2>
+<div class="cart"></div>
+<button class="clr-cart">Очистить корзину</button>
+<script src="script.js"></script>
 </body>
-
 </html>
