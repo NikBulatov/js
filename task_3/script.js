@@ -68,7 +68,7 @@ const cart = {
         this.goods = [];
         this.render();
     },
-    addToGood(good) {
+    addGood(good) {
         this.goods.push(good);
     }
 };
