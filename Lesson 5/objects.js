@@ -1,12 +1,12 @@
 // console.dir(document)
 // console.log(windows.document)
 // поиск элементов
-console.log(document.getElementById('id-test'));
+console.log(document.getElementById('id-test')); // div блок покажет
 console.log(document.getElementsByClassName('test-class')[1]); // HTMLCollection
 console.log(document.getElementsByTagName('p')); // HTMLCollection
 // test-class == последний элемент в родительском классе (div)
-console.log(document.querySelector('.test-class:last-child')); // HTMLCollection
-console.log(document.querySelectorAll('.test-class')); // return NodeCollection (forEach aviable)
+console.log(document.querySelector('.test-class:last-child')); // HTMLCollection (html code)
+console.log(document.querySelectorAll('.test-class')); // return NodeCollection (forEach variable)
 
 // перебор
 const pTags = document.getElementsByTagName('p');
@@ -54,7 +54,7 @@ const i = document.createElement('i');
 myDiv.className = 'my-class1 my-class2';
 myDiv.classList.add('my-class3');
 myDiv.classList.remove('my-class1');
-myDiv.classList.toggle('visible'); // если нет - добавит, если есть - удалит
+myDiv.classList.toggle('visible'); // если нет класса - добавит, если есть - удалит
 
 console.log(myDiv.classList.contains('my-class2'));
 i.textContent = 'Hello world!';
