@@ -1,0 +1,31 @@
+// a.
+if (!("a" in window)) {
+    var a = 1;
+}
+alert(a); // undefined, так как в условии "a" не определена ранее
+
+// b.
+var b = function a(x) {
+    x && a(--x);
+};
+alert(a); // Error: a is not defined. Так как функцию поместили в переменную "a"
+
+// c.
+function a(x) {
+    return x * 2;
+}
+var a;
+alert(a); // тело функции
+
+// d.
+function b(x, y, a) {
+    arguments[2] = 10;
+    alert(a);
+}
+b(1, 2, 3); // 10, возвращаем изменённую копию переданного аргумента из функции
+
+// e.
+function a() {
+    alert(this); // global (Window)
+}
+a.call(null); // global (Window), так как null определён в global (Window) a.call(null) == global(Window).null
